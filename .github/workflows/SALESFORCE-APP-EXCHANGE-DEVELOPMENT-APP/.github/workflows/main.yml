@@ -1,0 +1,131 @@
+NAME :'SALESFORCE-APP-EXCHANGE-DEVELOPMENT-APP/.github/workflows/main.yml'
+
+DEPLOYMENT METHODS/PROCESSES:
+
+1.GITHUB ACTIONS WORKFLOWS FOR CI/CD FOR SALESFORCE-DX
+2.DOCKER.
+3. DEPLOYMENT TO CLOUD :(AWS, GCP, HEROKU,ACP)
+
+
+- GitHub Actions Workflow for SalesforceDX:**
+
+```yaml
+name: CI/CD Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Salesforce CLI
+      uses: amtrack/sfdx-actions/setup-sfdx@v1
+
+    - name: Authenticate with Salesforce
+      run: sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CLIENT_ID }} --jwtkeyfile ${{ secrets.SALESFORCE_JWT_KEY }} --username ${{ secrets.SALESFORCE_USERNAME }} --instanceurl https://login.salesforce.com
+
+    - name: Run Apex Tests
+      run: sfdx force:apex:test:run --resultformat human --codecoverage --wait 10
+
+    - name: Deploy to Salesforce
+      run: sfdx force:source:deploy -p force-app/main/default
+
+```
+
+B.DOCKER FILE [ FOR DEPLOYMENT] :
+A basic Dockerfile for deploying our Salesforce app using Node.js.
+
+```dockerfile
+# Use the official Node.js image
+FROM node:14
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Define the command to run the app
+CMD ["node", "server.js"]
+```
+
+
+
+C.DEPLOYMENT TO CLOUD[AWS,GCP,ACP, HEROKU.] :
+Deployment of our Salesforce App Exchange Development App to various
+cloud platforms .
+
+1. Deployment to Cloud Platforms
+
+- AWS Elastic Beanstalk
+
+To deploy to AWS Elastic Beanstalk, we need to create a configuration file
+and use the AWS CLI to deploy your application.
+
+```bash
+# Create an Elastic Beanstalk environment
+eb init -p node.js my-app --region us-west-2
+eb create my-env
+
+# Deploy the application
+eb deploy
+```
+
+- Google Cloud Platform (GCP) App Engine
+
+To deploy to GCP App Engine, you need an `app.yaml` configuration file.
+
+```yaml
+# app.yaml
+runtime: nodejs14
+env: standard
+```
+
+Deploy using the Google Cloud SDK:
+
+```bash
+gcloud app deploy
+```
+
+-Heroku
+
+To deploy to Heroku, you need a `Procfile` and the Heroku CLI.
+
+```bash
+# Procfile
+web: node server.js
+```
+
+Deploy using the Heroku CLI:
+
+```bash
+heroku create
+git push heroku main
+```
+
+- Azure Cloud Platform (ACP)
+
+To deploy to Azure, you can use the Azure CLI.
+
+```bash
+# Create a web app
+az webapp up --name my-app --resource-group myResourceGroup --plan myAppServicePlan
+```
+
