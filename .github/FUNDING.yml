@@ -1,0 +1,52 @@
+# Supported Funding Models
+
+Specify usernames or project names for these platforms:
+
+- GitHub Sponsors: (Up to 4 usernames)
+- Patreon: (Single username)
+- Open Collective: (Single username)
+- Ko-fi: (Single username)
+- Tidelift: (platform-name/package-name, e.g., npm/babel)
+- Community Bridge: (project-name, e.g., cloud-foundry)
+- Liberapay: (Single username)
+- IssueHunt: (Single username)
+- LFX Crowdfunding: (project-name, e.g., cloud-foundry)
+- Polar: (Single username)
+- Buy Me a Coffee: (Single username)
+- thanks.dev: (Single username)
+- Custom: (Up to 4 URLs)## Usage Instructions
+
+1.  **Specify Funding Models**: For each platform, provide the relevant username(s), project name(s), or URL(s) as indicated.
+2.  **Multiple Entries**: When multiple usernames or URLs are supported (e.g., GitHub Sponsors, Custom), list them separated by commas.
+3.  **Case Sensitivity**: Usernames and project names are generally case-insensitive, but it's best to use the exact spelling for accuracy.
+4.  **Verification**: Double-check the accuracy of the usernames, project names, and URLs provided. Incorrect information will lead to incorrect links.
+5.  **Custom URLs**: For "Custom" URLs, ensure that they directly link to a donation or funding page for the project or individual.## Examples
+
+Here are a few examples of how to specify funding models:
+
+```
+github: user1, user2, user3 # Multiple GitHub Sponsors
+patreon: patreonuser # Single Patreon username
+opencollective: open-collective-project # Single Open Collective username
+ko_fi: kofiuser # Single Ko-fi username
+tidelift: npm/my-package # Tidelift example
+community_bridge: my-project # Community Bridge example
+liberapay: liberapayuser # Single Liberapay username
+issuehunt: issuehuntuser # Single IssueHunt username
+lfx_crowdfunding: my-project # LFX Crowdfunding example
+polar: polaruser # Single Polar username
+buy_me_a_coffee: buymeacoffeeuser # Single Buy Me a Coffee username
+thanks_dev: thanksdevuser # Single thanks.dev username
+custom: https://example.com/donate, https://another.org/support # Multiple Custom URLs
+```
+
+## Important Considerations
+
+*   **Platform Availability**: Ensure that the specified funding platform is actually used by the project or individual you are supporting.
+*   **Link Accuracy**: Always verify that the generated links are correct and lead to the intended donation or funding page.
+*   **User Expectations**: Be transparent about how the funding will be used and what impact it will have.
+*   **Maintenance**: Periodically review and update the funding information to reflect any changes in platform usage or URLs.
+*   **Ethical Considerations**: Avoid promoting funding models that are misleading or exploitative.
+*   **Alternative platforms**: If the platform you would like to add does not exist in the list above, consider adding a custom URL.
+
+By following these guidelines, you can effectively communicate your funding preferences and enable others to support your work.
